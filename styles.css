@@ -1,0 +1,179 @@
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+main {
+    padding: 20px;
+}
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+#search-bar {
+    margin-bottom: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.book-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(30% - 20px);
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+}
+.book-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.book-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.book-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.book-item p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.book-item a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+.book-item a:hover {
+    text-decoration: underline;
+}
+/* Additional Section Styling */
+.testimonials, .book-categories, .newsletter-signup, .social-media {
+    text-align: center;
+    padding: 40px 20px;
+}
+.testimonials h2, .book-categories h2, .newsletter-signup h2, .social-media h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.testimonial-item {
+    font-style: italic;
+    margin: 20px 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.book-categories button, .newsletter-signup button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+}
+.book-categories button:hover, .newsletter-signup button:hover {
+    background-color: #0056b3;
+}
+.newsletter-signup input {
+    padding: 10px;
+    width: 300px;
+    margin-right: 10px;
+}
+.social-media a {
+    text-decoration: none;
+    color: #007bff;
+    margin: 0 10px;
+}
+.social-media a:hover {
+    text-decoration: underline;
+}
+/* Progress Bar Styling */
+#progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+}
+#progress {
+    height: 10px;
+    width: 0%;
+    background-color: #28a745;
+}
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .book-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .book-categories button, .newsletter-signup button {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .social-media a {
+        display: block;
+        margin: 10px 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .book-item {
+        width: 90%;
+    }
+
+    .book-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .testimonials, .book-categories, .newsletter-signup, .social-media {
+        padding: 20px 10px;
+    }
+}

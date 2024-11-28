@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .download-link {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .download-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Successful!</h1>
+        <p>Thank you for purchasing <span id="book-title"></span>.</p>
+        <a id="download-link" class="download-link" href="https://drive.google.com/file/d/1Xn0y_Q7vtJ1xoCNmDo4aREauQ-hFko69/view?usp=sharing">Download Your Book</a>
+    </div>
+    <script>
+        // Extract query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const bookTitle = urlParams.get('book');
+        const downloadLinks = {
+            "Faith and Patience": "path_to_book1.pdf",
+            "Chasing Without Murmuring": "path_to_book2.pdf",
+            "The Conquerors": "path_to_book3.pdf"
+        };
+        document.getElementById("book-title").textContent = bookTitle;
+        document.getElementById("download-link").href = downloadLinks[bookTitle];
+    </script>
+</body>
+</html>

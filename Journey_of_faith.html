@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faith Journey</title>
+    <meta name="description" content="A collection of books showcasing the journey of faith.">
+    <meta property="og:title" content="Faith Journey">
+    <meta property="og:description" content="Explore books about faith, hope, and perseverance.">
+    <meta property="og:image" content="https://example.com/image.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Faith Journey</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <h1>The Journey of Faith</h1>
+        <p>Welcome to the Journey of Faith page. Below are books that highlight and portray the journey of faith in various ways.</p>
+
+        <!-- Search Bar -->
+        <input type="text" id="search-bar" placeholder="Search for books..." />
+
+        <!-- Book List -->
+        <div class="book-list">
+            <!-- Book Item 1 -->
+            <div class="book-item">
+                <img src="book1-thumbnail.jpg" alt="Faith and Patience">
+                <h2>Faith and Patience</h2>
+                <p>A short description of Book 1. This book explores the journey of faith through challenging times.</p>
+                <p>Price: ₦1000</p>
+                <a href="https://paystack.com/pay/"><button onclick="payWithPaystack('Faith and Patience', 1000, 'path_to_book1.pdf')">Buy Now</a></button>
+            </div>
+
+            <!-- Book Item 2 -->
+            <div class="book-item">
+                <img src="book2-thumbnail.jpg" alt="Chasing Without Murmuring">
+                <h2>Chasing Without Murmuring</h2>
+                <p>A short description of Book 2. This book shows how faith can bring hope and healing.</p>
+                <p>Price: ₦1000</p>
+                <a href="https://paystack.com/pay/"><button onclick="payWithPaystack('Chasing Without Murmuring', 1000, 'path_to_book2.pdf')">Buy Now</a></button>
+            </div>
+
+            <!-- Book Item 3 -->
+            <div class="book-item">
+                <img src="book3-thumbnail.jpg" alt="The Conquerors">
+                <h2>The Conquerors</h2>
+                <p>A short description of Book 3. Discover how faith grows in the face of adversity.</p>
+                <p>Price: ₦1000</p>
+                <a href="https://paystack.com/pay/"><button onclick="payWithPaystack('The Conquerors', 1000, 'path_to_book3.pdf')">Buy Now</a></button>
+            </div>
+        </div>
+
+        <!-- Other Sections Remain Unchanged -->
+        <!-- Testimonial Section -->
+        <section class="testimonials">
+            <h2>What Readers Are Saying</h2>
+            <div class="testimonial-item">
+                <p>"A transformative read! These books have helped me through some of the toughest times in my life." - Sarah W.</p>
+            </div>
+            <div class="testimonial-item">
+                <p>"The 'Faith and Patience' book really opened my eyes to the importance of perseverance in my faith journey." - John T.</p>
+            </div>
+        </section>
+
+        <!-- Book Categories Filter -->
+        <section class="book-categories">
+            <h2>Browse by Category</h2>
+            <button>Faith</button>
+            <button>Hope</button>
+            <button>Perseverance</button>
+        </section>
+
+        <!-- Newsletter Signup -->
+        <section class="newsletter-signup">
+            <h2>Stay Updated</h2>
+            <p>Sign up for our newsletter to get the latest book releases and updates directly in your inbox.</p>
+            <form>
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit">Subscribe</button>
+            </form>
+        </section>
+
+        <!-- Social Media Links -->
+        <section class="social-media">
+            <h2>Follow Us</h2>
+            <a href="https://facebook.com/faithjourney" target="_blank">Facebook</a> | 
+            <a href="https://twitter.com/faithjourney" target="_blank">Twitter</a> | 
+            <a href="https://instagram.com/faithjourney" target="_blank">Instagram</a>
+        </section>
+    </main>
+
+    <!-- Paystack Integration -->
+    <script>
+        function payWithPaystack(bookTitle, amount, downloadLink) {
+            var handler = PaystackPop.setup({
+                key: 'pk_test_eaeb4f8279040aebaf660e29ce41b3753fce7e30', // Replace with your Paystack public key
+                email: 'emmymirakulus225@gmail.com', // Replace with the user's email
+                amount: amount * 100, // Convert amount to kobo
+                currency: "NGN",
+                ref: `BOOK_${Math.floor((Math.random() * 1000000000) + 1)}`, // Generate unique reference
+                callback: function(response) {
+                    alert(`Payment for ${bookTitle} successful!`);
+                    // Redirect to download
+                    success.html.location.href = downloadLink;
+                },
+                onClose: function() {
+                    alert('Payment process cancelled.');
+                }
+            });
+            handler.openIframe();
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('search-bar');
+        searchInput.addEventListener('input', function () {
+            const query = searchInput.value.toLowerCase();
+            const books = document.querySelectorAll('.book-item');
+            books.forEach(book => {
+                const title = book.querySelector('h2').textContent.toLowerCase();
+                const description = book.querySelector('p').textContent.toLowerCase();
+                book.style.display = (title.includes(query) || description.includes(query)) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
